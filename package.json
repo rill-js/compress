@@ -1,0 +1,39 @@
+{
+  "name": "@rill/compress",
+  "version": "0.1.0",
+  "description": "Response compression middleware for Rill.",
+  "author": "Dylan Piercey <pierceydylan@gmail.com>",
+  "main": "server/index.js",
+  "browser": "client/index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rill-js/body"
+  },
+  "keywords": [
+    "universal",
+    "isomorphic",
+    "body",
+    "compress",
+    "gzip",
+    "deflate",
+    "rill"
+  ],
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.1.3",
+    "mocha": "^2.3.3",
+    "rill": "rill-js/rill",
+    "supertest": "^1.1.0"
+  },
+  "dependencies": {
+    "accepts": "^1.3.0",
+    "byte-length": "^0.1.0",
+    "bytes": "^2.1.0",
+    "compressible": "^2.0.6",
+    "content-check": "^0.1.1",
+    "statuses": "^1.2.1",
+    "type-is": "^1.6.9",
+    "vary": "^1.1.0"
+  }
+}
