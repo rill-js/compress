@@ -1,6 +1,6 @@
 {
   "name": "@rill/compress",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Response compression middleware for Rill.",
   "author": "Dylan Piercey <pierceydylan@gmail.com>",
   "main": "server/index.js",

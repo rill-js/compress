@@ -41,27 +41,27 @@ module.exports = function (opts) {
 
 		return next().then(function () {
 			var body     = res.body;
-			var length   = res.headers["content-length"];
-			var type     = res.headers["content-type"];
+			var length   = res.get("Content-Length");
+			var type     = res.get("Content-Type");
 			var isStream = body instanceof Stream;
 
 			// Check content length.
-			if (!length) length = res.headers["content-length"] = byteLength(body);
+			if (!length) res.set("Content-Length", length = byteLength(body));
 			// Check content type.
-			if (!type) type = res.headers["content-type"] = checkType(body);
+			if (!type) res.set("Content-Type", type = checkType(body));
 
 			// Check for reasons not to compress.
 			if (!body || !type) return;
 			if (res.compress === false) return;
 			if (req.method === "HEAD") return;
 			if (statuses.empty[res.status]) return;
-			if (res.headers["content-encoding"]) return;
+			if (res.get("Content-Encoding")) return;
 			// Force compression or implied.
-			if (!(res.compress === true || filter(res.headers["content-type"]))) return;
+			if (!(res.compress === true || filter(type))) return;
 
 			// Check allowed encodings.
 			var encoding = accepts(req.original).encoding("gzip", "deflate", "identity");
-			if (!encoding) ctx.throw(406, "supported encodings: gzip, deflate, identity");
+			if (!encoding) ctx.throw(406, "Supported encodings: gzip, deflate, identity");
 			if (encoding === "identity") return;
 
 			// json
@@ -69,8 +69,8 @@ module.exports = function (opts) {
 			// threshold
 			if (!isStream && threshold && length < threshold) return;
 
-			res.headers["content-encoding"] = encoding;
-			delete res.headers["content-length"];
+			res.set("Content-Encoding", encoding);
+			res.remove("Content-Length");
 
 			var stream = res.body = encodingMethods[encoding](opts);
 			// Start compression stream.

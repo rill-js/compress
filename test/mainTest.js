@@ -19,7 +19,7 @@ describe("Rill/Body", function () {
 			.get("/")
 			.expect(200)
 			.expect(function (res) {
-				assert.equal(res.headers["content-encoding"], "gzip");
+				assert.equal(res.get("Content-Encoding"), "gzip");
 			})
 			.end(done)
 	});
@@ -30,7 +30,7 @@ describe("Rill/Body", function () {
 			.expect(200)
 			.set("accept-encoding", "deflate")
 			.expect(function (res) {
-				assert.equal(res.headers["content-encoding"], "deflate");
+				assert.equal(res.get("Content-Encoding"), "deflate");
 			})
 			.end(done)
 	});
@@ -41,7 +41,7 @@ describe("Rill/Body", function () {
 			.expect(200)
 			.set("accept-encoding", "identity")
 			.expect(function (res) {
-				assert.equal(res.headers["content-encoding"], undefined);
+				assert.equal(res.get("Content-Encoding"), undefined);
 			})
 			.end(done)
 	});
