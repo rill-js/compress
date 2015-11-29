@@ -1,17 +1,21 @@
 var fs       = require("fs");
 var assert   = require("assert");
 var Rill     = require("rill");
-var agent    = require("./agent");
+var agent    = require("supertest");
 var compress = require("../server");
+var text     = fs.readFileSync(__filename, "utf8");
 
-describe("Rill/Body", function () {
-	after(agent.clear);
-	var request = agent.create(
+describe("Rill/Compress", function () {
+	var request = agent(
 		Rill()
 			.use(compress())
 			.get("/", function (ctx) {
 				ctx.res.body = fs.createReadStream(__filename);
 			})
+			.get("/text", function (ctx) {
+				ctx.res.body = text;
+			})
+			.listen()
 	);
 
 	it("should compress with gzip", function (done) {
@@ -42,6 +46,17 @@ describe("Rill/Body", function () {
 			.set("accept-encoding", "identity")
 			.expect(function (res) {
 				assert.equal(res.get("Content-Encoding"), undefined);
+			})
+			.end(done)
+	});
+
+	it("should compress text", function (done) {
+		request
+			.get("/text")
+			.expect(200)
+			.set("accept-encoding", "gzip")
+			.expect(function (res) {
+				assert.equal(res.get("Content-Encoding"), "gzip");
 			})
 			.end(done)
 	});
