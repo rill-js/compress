@@ -1,39 +1,55 @@
 {
   "name": "@rill/compress",
-  "version": "0.2.1",
   "description": "Response compression middleware for Rill.",
+  "version": "1.0.0",
   "author": "Dylan Piercey <pierceydylan@gmail.com>",
-  "main": "server/index.js",
   "browser": "client/index.js",
+  "bugs": "https://github.com/rill-js/compress/issues",
+  "dependencies": {
+    "accepts": "^1.3.3",
+    "byte-length": "^0.1.1",
+    "bytes": "^2.4.0",
+    "compressible": "^2.0.8",
+    "content-check": "^0.1.2",
+    "statuses": "^1.3.0",
+    "type-is": "^1.6.13",
+    "vary": "^1.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.0.2",
+    "rill": "rill-js/rill",
+    "snazzy": "^4.0.1",
+    "standard": "^8.0.0",
+    "supertest": "^2.0.0"
+  },
+  "homepage": "https://github.com/rill-js/compress",
+  "keywords": [
+    "body",
+    "compress",
+    "deflate",
+    "gzip",
+    "isomorphic",
+    "rill",
+    "universal"
+  ],
   "license": "MIT",
+  "main": "server/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/rill-js/compress"
   },
-  "keywords": [
-    "universal",
-    "isomorphic",
-    "body",
-    "compress",
-    "gzip",
-    "deflate",
-    "rill"
-  ],
-  "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-mocha": "^2.1.3",
-    "mocha": "^2.3.3",
-    "rill": "rill-js/rill",
-    "supertest": "^1.1.0"
+  "scripts": {
+    "lint": "standard --verbose | snazzy",
+    "test": "npm run lint && mocha ./test/**/*.test.js"
   },
-  "dependencies": {
-    "accepts": "^1.3.0",
-    "byte-length": "^0.1.0",
-    "bytes": "^2.1.0",
-    "compressible": "^2.0.6",
-    "content-check": "^0.1.1",
-    "statuses": "^1.2.1",
-    "type-is": "^1.6.9",
-    "vary": "^1.1.0"
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach"
+    ]
   }
 }
