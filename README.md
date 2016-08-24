@@ -27,14 +27,10 @@
   </a>
 </h1>
 
----
-
-# Description
-Isomorphic response body compression middleware.
+Isomorphic response body compression middleware for Rill using gzip or deflate if available.
 
 # Installation
 
-#### Npm
 ```console
 npm install @rill/compress
 ```
