@@ -1,6 +1,7 @@
 <h1 align="center">
   <!-- Logo -->
   <img src="https://raw.githubusercontent.com/rill-js/rill/master/Rill-Icon.jpg" alt="Rill"/>
+  <br/>
   @rill/compress
 	<br/>
 
@@ -14,11 +15,11 @@
   </a>
   <!-- NPM version -->
   <a href="https://npmjs.org/package/@rill/compress">
-    <img src="https://img.shields.io/npm/v/rill.svg?style=flat-square" alt="NPM version"/>
+    <img src="https://img.shields.io/npm/v/@rill/compress.svg?style=flat-square" alt="NPM version"/>
   </a>
   <!-- Downloads -->
   <a href="https://npmjs.org/package/@rill/compress">
-    <img src="https://img.shields.io/npm/dm/rill.svg?style=flat-square" alt="Downloads"/>
+    <img src="https://img.shields.io/npm/dm/@rill/compress.svg?style=flat-square" alt="Downloads"/>
   </a>
   <!-- Gitter Chat -->
   <a href="https://gitter.im/rill-js/rill">
