@@ -45,7 +45,7 @@ module.exports = function (opts) {
       var isStream = body instanceof Stream
 
       // support json
-      if (isType(type, 'json')) body = JSON.stringify(body)
+      if (isType(type, 'json') && typeof body === 'object') body = JSON.stringify(body)
       if (!isStream) length = res.get('Content-Length') || byteLength(body)
 
       // Check for reasons not to compress.
