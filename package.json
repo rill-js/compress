@@ -9,17 +9,17 @@
     "accepts": "^1.3.3",
     "byte-length": "^0.1.1",
     "bytes": "^2.4.0",
-    "compressible": "^2.0.8",
-    "content-check": "^0.1.3",
+    "compressible": "^2.0.11",
+    "content-check": "^0.1.4",
     "statuses": "^1.3.0",
     "type-is": "^1.6.13",
     "vary": "^1.1.0"
   },
   "devDependencies": {
-    "mocha": "^3.0.2",
-    "rill": "^5.0.3",
+    "mocha": "^3.5.0",
+    "rill": "^5.0.14",
     "snazzy": "^7.0.0",
-    "standard": "^10.0.2",
+    "standard": "^10.0.3",
     "supertest": "^3.0.0"
   },
   "homepage": "https://github.com/rill-js/compress",
